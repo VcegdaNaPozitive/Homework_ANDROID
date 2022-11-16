@@ -34,25 +34,29 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void click(View view) {
-        int a = getIntValue(editTextA);
-        int b = getIntValue(editTextB);
-        int c = getIntValue(editTextC);
-        if (a == 0) {
-            Toast.makeText(this, "а не может быть равно 0", Toast.LENGTH_SHORT).show();
+        if (editTextA.getText().length() == 0 || editTextB.getText().length() == 0 || editTextC.getText().length() == 0) {
+            Toast.makeText(this, "Заполните пустые поля", Toast.LENGTH_SHORT).show();
         } else {
-            int D = b * b - 4 * a * c;
-            double x = 0;
-            if (D > 0) {
-                double x1 = 0, x2 = 0;
-                x1 = (-b - Math.sqrt(D)) / (2 * a);
-                x2 = (-b + Math.sqrt(D)) / (2 * a);
-                textViewX.setText("x1 = " + (String.format("%.2f", x1)) + "; x2 = " + (String.format("%.2f", x2)) + ".");
-            } else if (D == 0) {
-                x = -b / (2 * a);
-                textViewX.setText("x = " + (String.format("%.2f", x)) + ".");
-
+            int a = getIntValue(editTextA);
+            int b = getIntValue(editTextB);
+            int c = getIntValue(editTextC);
+            if (a == 0) {
+                Toast.makeText(this, "а не может быть равно 0", Toast.LENGTH_SHORT).show();
             } else {
-                textViewX.setText("уравнение не имеет решений.");
+                int D = b * b - 4 * a * c;
+                double x = 0;
+                if (D > 0) {
+                    double x1 = 0, x2 = 0;
+                    x1 = (-b - Math.sqrt(D)) / (2 * a);
+                    x2 = (-b + Math.sqrt(D)) / (2 * a);
+                    textViewX.setText("x1 = " + (String.format("%.2f", x1)) + "; x2 = " + (String.format("%.2f", x2)) + ".");
+                } else if (D == 0) {
+                    x = -b / (2 * a);
+                    textViewX.setText("x = " + (String.format("%.2f", x)) + ".");
+
+                } else {
+                    textViewX.setText("уравнение не имеет решений.");
+                }
             }
         }
     }
