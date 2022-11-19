@@ -1,10 +1,7 @@
 package com.example.it_school_samsung;
 
-import java.util.Random;
-
 public class Problem {
     private int result;
-    private final Random random = new Random();
 
     public int getRandom(int min, int max) {
         return (int) (Math.random() * (max - min)) + min;
@@ -14,20 +11,42 @@ public class Problem {
         return result;
     }
 
+    public int getNoiseResult() {
+        return result + getRandom(-10, 10);
+    }
+
     public String getProblem() {
-        int a = getRandom(-50, 50);
-        int b = getRandom(0, 50);
-        String sign = getRandomSign();
-        if (sign.equals("+")) result = a + b;
-        else result = a - b;
+        char sign = getRandomSign();
+        int a = getRandom(-100, 100);
+        int b = getRandom(-100, 100);
+        switch (sign) {
+            case '+':
+                result = a + b;
+                break;
+            case '-':
+                result = a - b;
+                break;
+            case '*':
+                result = a * b;
+                break;
+            case '/':
+                result = a / b;
+                break;
+        }
         return a + " " + sign + " " + b;
     }
 
-    public int getNoiseResult() {
-        return result + getRandom(-4, 4);
-    }
-
-    private String getRandomSign() {
-        return random.nextBoolean() ? "-" : "+";
+    private char getRandomSign() {
+        switch (getRandom(1, 5)) {
+            case 1:
+                return '+';
+            case 2:
+                return '-';
+            case 3:
+                return '*';
+            case 4:
+                return '/';
+        }
+        return 0;
     }
 }
