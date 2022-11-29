@@ -42,8 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (view.getId()) {
                 case R.id.button:
                     Intent intent = new Intent(MainActivity.this, ActivityTwo.class);
+                    intent.putExtra("login", binding.editLogin.getText().toString());
                     startActivity(intent);
-                    finish();
                     break;
             }
         }
