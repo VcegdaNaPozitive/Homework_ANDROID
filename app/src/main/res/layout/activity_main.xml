@@ -6,12 +6,20 @@
     android:orientation="vertical"
     android:background="#B2E3B4">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="РЕГИСТРАЦИЯ"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:layout_marginTop="200dp"/>
+
     <EditText
         android:textColor="@color/black"
         android:id="@+id/editLogin"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="50dp"
         android:hint="Login"
         android:inputType="textEmailAddress" />
 
