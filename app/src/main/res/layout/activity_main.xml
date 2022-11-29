@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:background="#B2E3B4">
+
+    <EditText
+        android:textColor="@color/black"
+        android:id="@+id/editLogin"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:hint="Login"
+        android:inputType="textEmailAddress" />
+
+
+    <EditText
+        android:textColor="@color/black"
+        android:id="@+id/editPassword"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/btnActTwo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Go to Activity Two"
-        android:textColor="@color/black"
-        android:layout_marginTop="200dp"/>
+        android:backgroundTint="#53C523"
+        android:id="@+id/button"
+        android:layout_width="200dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="40dp"
+        android:text="Registration" />
+
 </LinearLayout>
