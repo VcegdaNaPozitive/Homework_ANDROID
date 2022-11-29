@@ -31,12 +31,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if  (login.getText().length() == 0 || password.getText().length() == 0) {
+        if (login.getText().length() == 0 || password.getText().length() == 0) {
             Toast.makeText(this, "Заполните пустые поля", Toast.LENGTH_SHORT).show();
-        }
-        else if (password.getText().length() < 8) {
+        } else if (password.getText().length() < 8) {
             Toast.makeText(this, "Пароль должен быть не менее 8 символов", Toast.LENGTH_SHORT).show();
+        } else if (login.getText().toString().equals("rickroll@gmail.com") && !password.getText().toString().equals("RickAstley")) {
+            Toast.makeText(this, "Неверный пароль", Toast.LENGTH_SHORT).show();
         } else {
+
             switch (view.getId()) {
                 case R.id.button:
                     Intent intent = new Intent(MainActivity.this, ActivityTwo.class);
