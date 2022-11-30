@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (login.length() == 0 || password.length() == 0) {
             Toast.makeText(this, "Заполните пустые поля", Toast.LENGTH_SHORT).show();
             Log.e("ERR", "Надо поля заполнить");
+        } else if (!login.contains("@")) {
+            Toast.makeText(this, "Введите почту", Toast.LENGTH_SHORT).show();
+            Log.e("ERR", "ВВести почту надо бы");
         } else if (password.length() < 8) {
             Toast.makeText(this, "Пароль должен быть не менее 8 символов", Toast.LENGTH_SHORT).show();
             Log.e("ERR", "Пароль нормальный нужен");
