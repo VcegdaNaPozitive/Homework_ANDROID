@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.it_school_samsung.databinding.ActivityMainBinding;
@@ -14,8 +13,6 @@ import com.example.it_school_samsung.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityMainBinding binding;
-    private EditText login;
-    private EditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,21 +21,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.button.setOnClickListener(this);
-        login = binding.editLogin;
-        password = binding.editPassword;
     }
 
 
     @Override
     public void onClick(View view) {
+        String login = binding.editLogin.getText().toString();
+        String password = binding.editPassword.getText().toString();
         Log.v("LET'S GO", "START");
-        if (login.getText().length() == 0 || password.getText().length() == 0) {
+        if (login.length() == 0 || password.length() == 0) {
             Toast.makeText(this, "Заполните пустые поля", Toast.LENGTH_SHORT).show();
             Log.e("ERR", "Надо поля заполнить");
-        } else if (password.getText().length() < 8) {
+        } else if (password.length() < 8) {
             Toast.makeText(this, "Пароль должен быть не менее 8 символов", Toast.LENGTH_SHORT).show();
             Log.e("ERR", "Пароль нормальный нужен");
-        } else if (login.getText().toString().equals("rickroll@gmail.com") && !password.getText().toString().equals("RickAstley")) {
+        } else if (login.equals("rickroll@gmail.com") && !password.equals("RickAstley")) {
             Toast.makeText(this, "Неверный пароль", Toast.LENGTH_SHORT).show();
             Log.e("ERR", "Фигня, пробовать другое надо");
         } else {
@@ -46,9 +43,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             switch (view.getId()) {
                 case R.id.button:
                     Intent intent = new Intent(MainActivity.this, ActivityTwo.class);
-                    intent.putExtra("login", binding.editLogin.getText().toString());
+                    intent.putExtra("login", login);
                     startActivity(intent);
-                    Log.i("YES", "email: " + binding.editLogin.getText().toString());
+                    finish();
+                    Log.i("YES", "email: " + login);
                     break;
             }
         }
