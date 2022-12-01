@@ -16,7 +16,7 @@ import com.example.it_school_samsung.databinding.ActivityTwoBinding;
 public class ActivityTwo extends AppCompatActivity implements View.OnClickListener {
 
     private ActivityTwoBinding binding;
-    private static final int REQUEST_TAKE_PHOTO = 1;
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +34,24 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         Log.i("TAKE PHOTO", "very well");
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        startActivityForResult(intent, REQUEST_TAKE_PHOTO);
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
     }
 
+
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent intent) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.i("TAKE PHOTO", "делаем...");
-        super.onActivityResult(requestCode, resultCode, intent);
-        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            Bitmap photo = (Bitmap) intent.getExtras().get("data");
-            binding.image.setImageBitmap(photo);
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap imageBitmap = (Bitmap) extras.get("data");
+            binding.image.setImageBitmap(imageBitmap);
             Log.i("TAKE PHOTO", "картинка");
         }
     }
 }
+
 
