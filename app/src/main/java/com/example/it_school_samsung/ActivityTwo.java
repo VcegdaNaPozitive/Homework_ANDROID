@@ -1,9 +1,7 @@
 package com.example.it_school_samsung;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -27,7 +25,7 @@ public class ActivityTwo extends AppCompatActivity implements View.OnClickListen
         setContentView(view);
         Intent intent = getIntent();
         String login = intent.getStringExtra("login");
-        binding.hello.setText(login);
+        binding.hello.setText("Привет, " + login);
         binding.camera.setOnClickListener(this);
     }
 
