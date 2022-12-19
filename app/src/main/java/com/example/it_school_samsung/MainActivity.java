@@ -9,7 +9,7 @@ import com.example.it_school_samsung.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-    private final News[] data = new News[4];
+    private final News[] data = new News[6];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +17,12 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.listView.setAdapter(new MyNewsAdapter(this, data));
-        initData();
-    }
 
-    private void initData() {
-        data[0] = new News("I am news 1", 4, 11, 19, R.drawable.news1);
-        data[1] = new News("I am news 2", 44, 31, 12, R.drawable.news2);
-        data[2] = new News("I am news 3", 2, 1, 100, R.drawable.news3);
-        data[3] = new News("I am news 4", 14, 10, 1, R.drawable.news4);
+        data[0] = new News("СПАЙК", 10, 10, 10, R.drawable.news1);
+        data[1] = new News("ВОРОН", 20, 20, 20, R.drawable.news2);
+        data[2] = new News("ЛЕОН", 30, 30, 30, R.drawable.news3);
+        data[3] = new News("СЕНДИ", 40, 40, 40, R.drawable.news4);
+        data[4] = new News("МЭГ", 50, 50, 50, R.drawable.news5);
+        data[5] = new News("АМБЕР", 60, 60, 60, R.drawable.news6);
     }
 }

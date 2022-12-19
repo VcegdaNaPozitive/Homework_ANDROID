@@ -13,7 +13,7 @@
         android:layout_margin="30dp"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:text="@string/all_star" />
+        android:text="Комменитарии" />
 
     <Button
         android:id="@+id/back"
